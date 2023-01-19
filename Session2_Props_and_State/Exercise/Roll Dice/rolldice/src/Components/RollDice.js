@@ -11,6 +11,8 @@ export class RollDice extends Component {
       dice2: "two",
       rolling: "Roll dice!",
       checkroll: false,
+      key1: 1,
+      key2: 2,
     };
   }
   handOnClick = (e) => {
@@ -22,6 +24,8 @@ export class RollDice extends Component {
       dice2: this.state.roll[index2],
       rolling: "Rolling...",
       checkroll: true,
+      key1: Math.random() * 1,
+      key2: Math.random() * 1,
     });
     setTimeout(() => {
       this.setState({ rolling: "Roll dice!", checkroll: false });
@@ -31,10 +35,10 @@ export class RollDice extends Component {
     return (
       <div>
         <div style={{ display: "flex", justifyContent: "center", gap: "3rem" }}>
-          <div key={Math.random()} className="shaking">
+          <div key={this.state.key1} className="shaking">
             <Dice props={this.state.dice1} />
           </div>
-          <div key={Math.random()} className="shaking">
+          <div key={this.state.key2} className="shaking">
             <Dice props={this.state.dice2} />
           </div>
         </div>
