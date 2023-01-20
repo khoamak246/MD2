@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import Dice from "./Dice";
 import "./Rolldice.css";
 
+const rollDefault = ["one", "two", "three", "four", "five", "six"];
+
 export class RollDice extends Component {
   constructor(props) {
     super();
     this.state = {
-      roll: ["one", "two", "three", "four", "five", "six"],
-      dice1: "one",
-      dice2: "two",
+      dice1: rollDefault[Math.floor(Math.random() * 6)],
+      dice2: rollDefault[Math.floor(Math.random() * 6)],
       rolling: "Roll dice!",
       checkroll: false,
       key1: 1,
@@ -20,8 +21,8 @@ export class RollDice extends Component {
     let index1 = Math.floor(Math.random() * 6);
     let index2 = Math.floor(Math.random() * 6);
     this.setState({
-      dice1: this.state.roll[index1],
-      dice2: this.state.roll[index2],
+      dice1: rollDefault[index1],
+      dice2: rollDefault[index2],
       rolling: "Rolling...",
       checkroll: true,
       key1: Math.random() * 1,
