@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export class Control extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       searchVal: "",
     };
@@ -27,7 +27,11 @@ export class Control extends Component {
       <div className="card-header">
         <div className="row">
           <div className="col-3">
-            <button type="button" className="btn btn-primary btn-icon-text">
+            <button
+              type="button"
+              className="btn btn-primary btn-icon-text"
+              onClick={this.props.handleToggleForm}
+            >
               Thêm mới sinh viên
             </button>
           </div>

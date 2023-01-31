@@ -1,6 +1,17 @@
 import React, { Component } from "react";
 
 export class Student extends Component {
+  constructor(props) {
+    super(props);
+  }
+  handleOnClickEdit = (index) => {
+    this.props.handleOnEditSelected(index);
+    this.props.handleToggleUdapte(true);
+  };
+  handleOnClickShow = (index) => {
+    this.props.handleSetIndexShowStudent(index);
+    this.props.handleSetToggleShow(true, false);
+  };
   render() {
     const { students } = this.props;
     return (
@@ -18,18 +29,27 @@ export class Student extends Component {
                   <button
                     type="button"
                     className="btn btn-danger btn-icon-text"
+                    onClick={() => {
+                      this.handleOnClickShow(index);
+                    }}
                   >
                     Xem
                   </button>
                   <button
                     type="button"
                     className="btn btn-warning btn-icon-text"
+                    onClick={() => {
+                      this.handleOnClickEdit(index);
+                    }}
                   >
                     Sửa
                   </button>
                   <button
                     type="button"
                     className="btn btn-success btn-icon-text"
+                    onClick={() => {
+                      this.props.handleSetSelectedStudentDeleteIndex(index);
+                    }}
                   >
                     Xóa
                   </button>

@@ -1,6 +1,24 @@
 import React, { Component } from "react";
 import Student from "./Student";
 export class ListStudent extends Component {
+  constructor(props) {
+    super(props);
+  }
+  handleOnEditSelected = (index) => {
+    this.props.handleOnEdit(index);
+  };
+  handleSetToggleUpdate = (val) => {
+    this.props.handleToggleUdapte(val);
+  };
+  handleSetIndexShowStudent = (val) => {
+    this.props.handleGetIndexShowStudent(val);
+  };
+  handleSetToggleShow = (open, close) => {
+    this.props.handleToggleShow(open, close);
+  };
+  handleSetSelectedStudentDeleteIndex = (val) => {
+    this.props.selectedStudentDeleteIndex(val);
+  };
   render() {
     return (
       <div className="card-body">
@@ -18,7 +36,16 @@ export class ListStudent extends Component {
               </tr>
             </thead>
             <tbody>
-              <Student students={this.props.studentlist} />
+              <Student
+                students={this.props.studentlist}
+                handleOnEditSelected={this.handleOnEditSelected}
+                handleToggleUdapte={this.handleSetToggleUpdate}
+                handleSetIndexShowStudent={this.handleSetIndexShowStudent}
+                handleSetToggleShow={this.handleSetToggleShow}
+                handleSetSelectedStudentDeleteIndex={
+                  this.handleSetSelectedStudentDeleteIndex
+                }
+              />
             </tbody>
           </table>
         </div>
